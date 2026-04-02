@@ -16,13 +16,8 @@ routerAPI.get("/posts/:id", (req, res) => {
   if (!post) {
     res.status(404).json({
       status: "post not found!",
+      post: post,
     });
   }
-
-  res.status(200).json({
-    status: "success!",
-    post: post,
-  });
 });
-
 module.exports = routerAPI;

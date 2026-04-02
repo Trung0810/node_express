@@ -15,7 +15,7 @@ app.use("/v1/api", router);
 
 (async () => {
   console.log(">>> CONSOLE <<<");
-  await connection();
+  await connection(); // connect db first
   app.listen(port, hostname, () => {
     console.log(`App listening on http://${hostname}:${port}`);
   });

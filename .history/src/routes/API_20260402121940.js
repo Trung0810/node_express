@@ -24,5 +24,4 @@ routerAPI.get("/posts/:id", (req, res) => {
     post: post,
   });
 });
-
 module.exports = routerAPI;

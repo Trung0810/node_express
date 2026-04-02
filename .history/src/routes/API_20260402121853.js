@@ -18,11 +18,5 @@ routerAPI.get("/posts/:id", (req, res) => {
       status: "post not found!",
     });
   }
-
-  res.status(200).json({
-    status: "success!",
-    post: post,
-  });
 });
-
 module.exports = routerAPI;

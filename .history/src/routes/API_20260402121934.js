@@ -21,8 +21,7 @@ routerAPI.get("/posts/:id", (req, res) => {
 
   res.status(200).json({
     status: "success!",
-    post: post,
+    post,
   });
 });
-
 module.exports = routerAPI;
