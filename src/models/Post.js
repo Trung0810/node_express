@@ -1,24 +1,21 @@
 const mongoose = require("mongoose");
 const { Schema, model } = mongoose;
+const mongoose_delete = require("mongoose-delete");
 
 // tao cau truc cho schema
-const postSchema = Schema({
-  postID: String,
-  title: String,
-  description: String,
-  content: String,
-  author: {
-    type: Schema.Types.ObjectId,
-    ref: "authors",
+const postSchema = Schema(
+  {
+    postID: String,
+    title: String,
+    content: String,
   },
-  publishedAt: Date,
-  viewCount: Number,
-  likeCount: Number,
-});
+  { timeStamp: true }, // createdAt, updatedAt
+);
 
-// posts document dc tao moi trong db chua cac collections
-// Post co the hieu la 1 lop trong document
-// co the tao cac collection = new Post
+postSchema.plugin(mongoose_delete);
+// Post: model -> co the nhu 1 lop doi tuong
+// posts: collection name
+
 const Post = model("posts", postSchema);
 
 module.exports = Post;

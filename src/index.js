@@ -2,16 +2,15 @@ require("dotenv").config();
 const express = require("express");
 const cors = require("cors");
 const app = express();
-const router = require("./routes/API");
+const postRouterAPI = require("./routes/postAPI");
 const connection = require("./config/DataBase");
-const Post = require("./models/Post");
-const Author = require("./models/Author");
 
-const hostname = process.env.HOST_NAME;
-const port = process.env.PORT || 8888;
+const hostname = "localhost";
+const port = 8888;
 
 app.use(cors());
-app.use("/v1/api", router);
+app.use(express.json());
+app.use("/v1/api", postRouterAPI);
 
 (async () => {
   console.log(">>> CONSOLE <<<");
